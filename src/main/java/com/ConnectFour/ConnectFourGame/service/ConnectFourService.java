@@ -4,22 +4,21 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ConnectFourService {
-    private char[][] field = new char[6][7];
-    private boolean playersTurn = true;
 
-    private String currentPlayer = "PLAYER1";
+    //Attributes
+    private int currentPlayer = 1;
 
-
-    public String getCurrentPlayer() {
+    //Methods
+    public int getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public void makeTurn(int column) {
-        // Hier füge die Logik für den Zug des Spielers hinzu
-        // Zum Beispiel das Spielfeld aktualisieren
+    public void switchPlayer() {
+        currentPlayer = (currentPlayer == 1) ? 2 : 1;
+    }
 
-        // Wechsel den Spieler
-        currentPlayer = (currentPlayer.equals("PLAYER1")) ? "PLAYER2" : "PLAYER1";
+    public void makeMove(int column) {
+
     }
 
 }

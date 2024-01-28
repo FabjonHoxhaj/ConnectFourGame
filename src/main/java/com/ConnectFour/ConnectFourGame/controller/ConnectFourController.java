@@ -2,11 +2,13 @@ package com.ConnectFour.ConnectFourGame.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.ConnectFour.ConnectFourGame.service.ConnectFourService;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ConnectFourController {
@@ -16,14 +18,15 @@ public class ConnectFourController {
 
     @GetMapping()
     public String showPlaygame(Model model) {
-        model.addAttribute("playerTurn", connectFourService.getCurrentPlayer());
+        model.addAttribute("currentPlayer", connectFourService.getCurrentPlayer());
         return "index";
     }
 
     @PostMapping()
-    public String makeMove(@RequestBody int column) {
-        connectFourService.makeTurn(column);
-        return "redirect:/index";
+    public String makeMove(@RequestParam("column") int column) {
+        System.out.println(column);
+        connectFourService.switchPlayer();
+        return "redirect:/";
     }
 
 }
