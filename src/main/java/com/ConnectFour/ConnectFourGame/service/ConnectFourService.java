@@ -18,15 +18,13 @@ public class ConnectFourService {
         currentPlayer = (currentPlayer == 1) ? 2 : 1;
     }
 
-    public int[][] makeMove(int column) {
-        System.out.println(column);
+    public void makeMove(int column) {
         for (int i = 6 - 1; i >= 0; i--) {
             if (board[i][column] == 0) {
                 board[i][column] = currentPlayer;
                 break;
             }
         }
-        return board;
     }
 
     public int[][] getBoard() {

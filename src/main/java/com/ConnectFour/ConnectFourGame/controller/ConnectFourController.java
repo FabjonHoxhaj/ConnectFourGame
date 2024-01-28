@@ -25,8 +25,7 @@ public class ConnectFourController {
 
     @PostMapping()
     public String switchPlayer(@RequestParam("column") int column) {
-        System.out.println(column);
-        int[][] cell = connectFourService.makeMove(column);
+        connectFourService.makeMove(column);
         connectFourService.switchPlayer();
         return "redirect:/";
     }
