@@ -15,13 +15,15 @@ public class ConnectFourController {
     private ConnectFourService connectFourService;
 
     @GetMapping()
-    public String indexHTML() {
+    public String showPlaygame(Model model) {
+        model.addAttribute("playerTurn", connectFourService.getCurrentPlayer());
         return "index";
     }
 
     @PostMapping()
-    public String makeMove(@RequestBody String column) {
-        return "test";
+    public String makeMove(@RequestBody int column) {
+        connectFourService.makeTurn(column);
+        return "redirect:/index";
     }
 
 }
