@@ -10,8 +10,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 50vh;
-
         }
 
         table {
@@ -23,6 +21,8 @@
         td {
             border: 1px solid #3498db;
             padding: 10px;
+            width: 50px;
+            height: 50px;
             text-align: center;
         }
 
@@ -77,14 +77,17 @@
     <h1>Vier Gewinnt</h1>
 
     <table>
-        <tr th:each="row : ${#numbers.sequence(1, 6)}">
-            <td th:each="column : ${#numbers.sequence(1, 7)}">-</td>
+        <tr th:each="row, rowIdx : ${board}">
+            <td th:each="cell, colIdx : ${row}" th:text="${cell}"></td>
         </tr>
     </table>
 
+    <h2 th:if="${currentPlayer == 1}">Player 1</h2>
+    <h2 th:if="${currentPlayer == 2}">Player 2</h2>
+
     <form method="post" action="/">
         <label for="column">In welche Spalte möchtest du deinen Stein setzen?</label>
-        <input type="text" id="column" required>
+        <input type="number" id="column" name="column" required>
         <button type="submit">Zug machen</button>
     </form>
 </div>
