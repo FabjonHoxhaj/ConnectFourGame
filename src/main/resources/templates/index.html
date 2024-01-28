@@ -77,8 +77,8 @@
     <h1>Vier Gewinnt</h1>
 
     <table>
-        <tr th:each="row : ${#numbers.sequence(1, 6)}">
-            <td th:each="column : ${#numbers.sequence(1, 7)}"></td>
+        <tr th:each="row, rowIdx : ${board}">
+            <td th:each="cell, colIdx : ${row}" th:text="${cell}"></td>
         </tr>
     </table>
 

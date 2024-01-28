@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 public class ConnectFourService {
 
     //Attributes
+    private int[][] board = new int[6][7];
     private int currentPlayer = 1;
 
     //Methods
@@ -17,8 +18,19 @@ public class ConnectFourService {
         currentPlayer = (currentPlayer == 1) ? 2 : 1;
     }
 
-    public void makeMove(int column) {
+    public int[][] makeMove(int column) {
+        System.out.println(column);
+        for (int i = 6 - 1; i >= 0; i--) {
+            if (board[i][column] == 0) {
+                board[i][column] = currentPlayer;
+                break;
+            }
+        }
+        return board;
+    }
 
+    public int[][] getBoard() {
+        return board;
     }
 
 }

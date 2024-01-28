@@ -19,12 +19,14 @@ public class ConnectFourController {
     @GetMapping()
     public String showPlaygame(Model model) {
         model.addAttribute("currentPlayer", connectFourService.getCurrentPlayer());
+        model.addAttribute("board", connectFourService.getBoard());
         return "index";
     }
 
     @PostMapping()
-    public String makeMove(@RequestParam("column") int column) {
+    public String switchPlayer(@RequestParam("column") int column) {
         System.out.println(column);
+        int[][] cell = connectFourService.makeMove(column);
         connectFourService.switchPlayer();
         return "redirect:/";
     }
