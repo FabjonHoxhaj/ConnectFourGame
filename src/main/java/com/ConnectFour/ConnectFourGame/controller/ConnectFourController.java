@@ -19,6 +19,7 @@ public class ConnectFourController {
     public String showPlaygame(Model model) {
         model.addAttribute("currentPlayer", String.valueOf(connectFourService.getCurrentPlayer()));
         model.addAttribute("board", connectFourService.getBoard());
+        model.addAttribute("invalidMove", connectFourService.getInvalidMove());
         return "index";
     }
 

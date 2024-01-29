@@ -66,7 +66,13 @@
             color: #3498db;
             transition: border-color 0.3s, color 0.3s;
         }
+
         label {
+            font-size: 20px;
+        }
+
+        .toast {
+            color: red;
             font-size: 20px;
         }
     </style>
@@ -75,7 +81,6 @@
 <body>
 <div class="container">
     <h1>Vier Gewinnt</h1>
-
     <table>
         <tr>
             <td th:each="column, colIdx : ${board[0]}" th:text="${colIdx.index + 1}"></td>
@@ -93,7 +98,9 @@
         <input type="number" id="column" name="column" required>
         <button type="submit">Zug machen</button>
     </form>
-</div>
+    <div th:if="${invalidMove==true}" class="toast">
+        Dieser Zug ist ungültig. Setze deinen Spielstein in eine andere Spalte!
+    </div>
 </body>
 
 </html>
