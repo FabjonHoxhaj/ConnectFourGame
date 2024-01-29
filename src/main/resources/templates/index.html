@@ -82,8 +82,8 @@
         </tr>
     </table>
 
-    <h2 th:if="${currentPlayer == 1}">Player 1</h2>
-    <h2 th:if="${currentPlayer == 2}">Player 2</h2>
+    <h2 th:if="${currentPlayer == 'X'}">Player 1</h2>
+    <h2 th:if="${currentPlayer == 'O'}">Player 2</h2>
 
     <form method="post" action="/">
         <label for="column">In welche Spalte möchtest du deinen Stein setzen?</label>
