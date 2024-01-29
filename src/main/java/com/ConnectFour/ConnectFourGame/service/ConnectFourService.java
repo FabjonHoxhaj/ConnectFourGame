@@ -19,10 +19,10 @@ public class ConnectFourService {
     }
 
     public void makeMove(int column) {
-        for (int i = 6 - 1; i >= 0; i--) {
-            if (board[i][column] == 0) {
-                board[i][column] = currentPlayer;
-                break;
+        for (int i = 6 - 1; i >=0; i--) {
+            if (board[i][column-1] == 0) {
+                board[i][column-1] = currentPlayer;
+                return;
             }
         }
     }

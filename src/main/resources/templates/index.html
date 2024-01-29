@@ -77,11 +77,11 @@
     <h1>Vier Gewinnt</h1>
 
     <table>
-        <tr th:each="row, rowIdx : ${board}">
-            <td th:each="cell, colIdx : ${row}" th:text="${cell}"></td>
-        </tr>
         <tr>
             <td th:each="column, colIdx : ${board[0]}" th:text="${colIdx.index + 1}"></td>
+        </tr>
+        <tr th:each="row, rowIdx : ${board}">
+            <td th:each="cell, colIdx : ${row}" th:text="${cell}"></td>
         </tr>
     </table>
 
