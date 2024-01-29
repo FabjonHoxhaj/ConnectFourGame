@@ -80,6 +80,9 @@
         <tr th:each="row, rowIdx : ${board}">
             <td th:each="cell, colIdx : ${row}" th:text="${cell}"></td>
         </tr>
+        <tr>
+            <td th:each="column, colIdx : ${board[0]}" th:text="${colIdx.index + 1}"></td>
+        </tr>
     </table>
 
     <h2 th:if="${currentPlayer == 'X'}">Player 1</h2>
