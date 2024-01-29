@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import com.ConnectFour.ConnectFourGame.service.ConnectFourService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +17,7 @@ public class ConnectFourController {
 
     @GetMapping()
     public String showPlaygame(Model model) {
-        model.addAttribute("currentPlayer", connectFourService.getCurrentPlayer());
+        model.addAttribute("currentPlayer", String.valueOf(connectFourService.getCurrentPlayer()));
         model.addAttribute("board", connectFourService.getBoard());
         return "index";
     }

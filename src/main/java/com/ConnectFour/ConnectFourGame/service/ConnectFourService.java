@@ -6,16 +6,16 @@ import org.springframework.stereotype.Service;
 public class ConnectFourService {
 
     //Attributes
-    private int[][] board = new int[6][7];
-    private int currentPlayer = 1;
+    private char[][] board = new char[6][7];
+    private char currentPlayer = 'X';
 
     //Methods
-    public int getCurrentPlayer() {
+    public char getCurrentPlayer() {
         return currentPlayer;
     }
 
     public void switchPlayer() {
-        currentPlayer = (currentPlayer == 1) ? 2 : 1;
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 
     public void makeMove(int column) {
@@ -27,7 +27,7 @@ public class ConnectFourService {
         }
     }
 
-    public int[][] getBoard() {
+    public char[][] getBoard() {
         return board;
     }
 
